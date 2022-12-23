@@ -1,0 +1,32 @@
+{
+    "name": "salt/nova-tags-field",
+    "description": "A Laravel Nova tool.",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.3|^8.0",
+        "laravel/nova": "^4.13",
+        "nova-kit/nova-packages-tool": "^1.2",
+        "spatie/laravel-tags": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cookiearena\\NovaTagsField\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cookiearena\\NovaTagsField\\ToolServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

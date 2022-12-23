@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>test package</title>
+
+    @if ($styles = \Salt\Nova\Nova::availableStyles(request()))
+    <!-- Tool Styles -->
+        @foreach($styles as $asset)
+            <link href="{!! $asset->url() !!}" rel="stylesheet">
+        @endforeach
+    @endif
+    <!-- <link href="{{ mix('/css/app.css', 'vendor/salt')}}" rel="stylesheet" /> -->
+</head>
+<body>
+    @inertia
+
+    @if ($scripts = \Salt\Nova\Nova::availableScripts(request()))
+        <!-- Tool Scripts -->
+        @foreach ($scripts as $asset)
+            <script src="{!! $asset->url() !!}"></script>
+        @endforeach
+    @endif
+    <!-- <script src="{{ mix('/js/app.js', 'vendor/salt') }}"></script> -->
+</body>
+</html>
