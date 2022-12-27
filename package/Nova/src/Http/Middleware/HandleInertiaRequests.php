@@ -18,12 +18,6 @@ class HandleInertiaRequests extends Middleware
      */
     protected $rootView = 'salt::layouts.app';
 
-    protected $append_flash_keys = [
-        'message',
-        'flag_submission',
-        'data',
-    ];
-
     /**
      * Determines the current asset version.
      *

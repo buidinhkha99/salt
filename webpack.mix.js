@@ -1,7 +1,10 @@
-let mix = require('laravel-mix')
+const mix = require("laravel-mix");
 
-mix.setPublicPath('public')
-    .js('resources/js/app.js', 'public/js')
-    .css("resources/css/app.css", "public/css");
+mix
+  .js("resources/js/app.js", "public/js")
+  .react({
+    extractStyles: true
+  })
+  .css("resources/css/app.css", "public/css");
 
 mix.version();

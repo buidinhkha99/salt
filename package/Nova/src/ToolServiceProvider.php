@@ -23,12 +23,23 @@ class ToolServiceProvider extends ServiceProvider
         $this->app->router->aliasMiddleware('salt.inertia', HandleInertiaRequests::class);
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'salt');
-        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
-        // $this->publishes([
-        //     __DIR__.'/../public' => public_path('vendor/salt'),
-        // ], 'salt');
+        // publishes view files
+        $this->publishes([
+            __DIR__.'/../resources/js/components' => base_path('resources/js/components'),
+        ], 'salt');
 
+        $this->publishes([
+            __DIR__.'/../resources/js/shared' => base_path('resources/js/shared'),
+        ], 'salt');
+
+        // publishes controller files
+        $this->publishes([
+            __DIR__.'/../src/Screens' => base_path('app/Screens'),
+        ], 'salt');
+
+        include __DIR__.'/../routes/web.php';
     }
 
 }

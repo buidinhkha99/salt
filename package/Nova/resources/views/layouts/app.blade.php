@@ -13,17 +13,14 @@
             <link href="{!! $asset->url() !!}" rel="stylesheet">
         @endforeach
     @endif
-    <!-- <link href="{{ mix('/css/app.css', 'vendor/salt')}}" rel="stylesheet" /> -->
 </head>
 <body>
-    @inertia
-
+    @inertia 
     @if ($scripts = \Salt\Nova\Nova::availableScripts(request()))
         <!-- Tool Scripts -->
         @foreach ($scripts as $asset)
             <script src="{!! $asset->url() !!}"></script>
         @endforeach
     @endif
-    <!-- <script src="{{ mix('/js/app.js', 'vendor/salt') }}"></script> -->
 </body>
 </html>
