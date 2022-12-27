@@ -15,7 +15,7 @@ class BaseScreen extends Controller
     public string $page = '';
     public array $data = [];
 
-    public function components(): static
+    public function header(): static
     {
         $this->data = [
             'header' => [
