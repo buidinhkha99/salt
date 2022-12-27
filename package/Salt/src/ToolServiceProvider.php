@@ -1,6 +1,6 @@
 <?php
 
-namespace Salt\Nova;
+namespace Bcs\Salt;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -12,18 +12,19 @@ class ToolServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        Route::bind('entity', function ($entity) {
-            return Facade::guestEntity($entity);
-        });
+        // TODO: set up package the same Nova service
+        // Route::bind('entity', function ($entity) {
+        //     return Facade::guestEntity($entity);
+        // });
 
-        Nova::script('salt-nova', __DIR__.'/../public/js/app.js');
-        Nova::style('salt-nova', __DIR__.'/../public/css/app.css');
+        // Nova::script('salt-nova', __DIR__.'/../public/js/app.js');
+        // Nova::style('salt-nova', __DIR__.'/../public/css/app.css');
 
-        $this->app->register(InertiaServiceProvider::class);
-        $this->app->router->aliasMiddleware('salt.inertia', HandleInertiaRequests::class);
+        // $this->app->register(InertiaServiceProvider::class);
+        // $this->app->router->aliasMiddleware('salt.inertia', HandleInertiaRequests::class);
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'salt');
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        // $this->loadViewsFrom(__DIR__ . '/../resources/views', 'salt');
+        // $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         // publishes view files
         $this->publishes([
@@ -39,7 +40,6 @@ class ToolServiceProvider extends ServiceProvider
             __DIR__.'/../src/Screens' => base_path('app/Screens'),
         ], 'salt');
 
-        include __DIR__.'/../routes/web.php';
     }
 
 }
